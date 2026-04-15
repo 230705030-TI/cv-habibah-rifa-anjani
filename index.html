@@ -6,34 +6,38 @@
     <title>CV Habibah Rifa Anjani</title>
     <style>
         :root {
-            --denim-blue: #5D7B93; /* Warna Denim yang kalem */
-            --light-denim: #E8EEF2; /* Denim sangat muda untuk bg */
+            /* Warna Perpaduan Denim dan Baby Blue */
+            --denim-blue: #5D7B93; /* Warna Denim yang kalem untuk header */
+            --baby-blue-bg: #E3F2FD; /* Warna Baby Blue yang sangat soft untuk latar isi */
+            --text-dark: #334155;
             --white: #FFFFFF;
-            --text: #334155;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: #CBD5E1; /* Warna abu-abu denim luar */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F0F4F8; /* Latar luar layar abu-abu sangat muda */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            color: var(--text);
+            color: var(--text-dark);
         }
 
+        /* Tampilan Mobile */
         .mobile-view {
             width: 100%;
             max-width: 414px;
-            background-color: var(--light-denim);
+            background-color: var(--baby-blue-bg); /* BC (Latar Belakang Isi) Jadi Baby Blue */
             min-height: 100vh;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            background-color: var(--denim-blue);
-            padding: 50px 20px;
+            background-color: var(--denim-blue); /* Bagian Atas Jadi Denim */
+            padding: 60px 20px 40px; /* Padding atas-bawah sedikit diperluas */
             text-align: center;
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
@@ -41,36 +45,39 @@
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            /* FOTO DIBESARIN */
+            width: 160px; /* Diperbesar dari 140px */
+            height: 160px; /* Diperbesar dari 140px */
             border-radius: 50%;
-            border: 6px solid rgba(255, 255, 255, 0.3);
+            border: 6px solid rgba(255, 255, 255, 0.4); /* Border putih sedikit transparan */
             object-fit: cover;
-            margin-bottom: 15px;
-            background-color: white;
+            margin-bottom: 20px;
+            background-color: white; /* Kalau fotonya belum loading */
         }
 
         h1 {
             margin: 0;
             font-size: 1.5rem;
             color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
         }
 
         .tagline {
             font-size: 0.9rem;
-            color: #D1D5DB;
+            color: #E2E8F0; /* Teks denim terang */
             margin-top: 5px;
+            font-weight: 500;
         }
 
         .content {
-            padding: 30px 20px;
+            padding: 35px 20px;
+            flex-grow: 1; /* Biar ngisi ruang kosong */
         }
 
         h2 {
             font-size: 1.1rem;
-            color: var(--denim-blue);
-            margin-bottom: 15px;
+            color: var(--denim-blue); /* Judul seksi pakai warna denim */
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             font-weight: 700;
@@ -81,7 +88,7 @@
             width: 8px;
             height: 20px;
             background: var(--denim-blue);
-            margin-right: 10px;
+            margin-right: 12px;
             border-radius: 4px;
         }
 
@@ -90,25 +97,58 @@
             padding: 20px;
             border-radius: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(93, 123, 147, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bayangan lebih halus */
         }
 
         p {
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 0;
+            color: #4A5568;
+        }
+
+        b, strong {
+            /* TULISAN TEBAL DIKUATKAN */
+            font-weight: bold; /* Bold! */
+            color: var(--denim-blue); /* Warna denim tebal */
+        }
+
+        .edu-timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .edu-timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: var(--denim-blue);
+            border-radius: 1px;
         }
 
         .edu-item {
-            border-left: 2px dashed var(--denim-blue);
-            padding-left: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             position: relative;
+        }
+
+        .edu-item::before {
+            content: "";
+            position: absolute;
+            left: -26px; /* Pas di garis */
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--denim-blue);
+            border-radius: 50%;
+            border: 2px solid white;
         }
 
         .edu-year {
             font-size: 0.8rem;
-            color: var(--denim-blue);
+            color: #64748B;
             font-weight: bold;
         }
 
@@ -121,7 +161,7 @@
         .skill-tag {
             background: var(--denim-blue);
             color: white;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 12px;
             font-size: 0.85rem;
             font-weight: 500;
@@ -130,9 +170,10 @@
         .contact-box {
             background: var(--denim-blue);
             color: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 25px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .contact-box a {
@@ -142,16 +183,19 @@
             margin: 10px 0;
             font-size: 0.9rem;
             background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: background 0.2s;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px 30px;
             font-size: 0.8rem;
             color: var(--denim-blue);
             opacity: 0.7;
+            background: white; /* Biar terpisah dari BC Baby Blue */
+            border-top: 1px solid #E2E8F0;
         }
     </style>
 </head>
@@ -177,15 +221,17 @@
         <section>
             <h2>Pendidikan</h2>
             <div class="card">
-                <div class="edu-item">
-                    <span class="edu-year">2023 - Sekarang</span><br>
-                    <strong>UIN Ar-Raniry Banda Aceh</strong>
-                    <p>Prodi Teknologi Informasi</p>
-                </div>
-                <div class="edu-item" style="margin-bottom: 0;">
-                    <span class="edu-year">2020 - 2023</span><br>
-                    <strong>SMAN 1 Indrapuri</strong>
-                    <p>Jurusan MIPA</p>
+                <div class="edu-timeline">
+                    <div class="edu-item">
+                        <span class="edu-year">2023 - Sekarang</span><br>
+                        <strong>UIN Ar-Raniry Banda Aceh</strong>
+                        <p>Prodi Teknologi Informasi</p>
+                    </div>
+                    <div class="edu-item" style="margin-bottom: 0;">
+                        <span class="edu-year">2020 - 2023</span><br>
+                        <strong>SMAN 1 Indrapuri</strong>
+                        <p>Jurusan MIPA</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -201,16 +247,16 @@
 
         <section>
             <div class="contact-box">
-                <h3 style="margin-top:0">Hubungi Saya</h3>
+                <h3 style="margin-top:0; color: white; font-weight: bold;">Hubungi Saya</h3>
                 <a href="https://wa.me/6283153582243">📱 +62 831 5358 2243</a>
                 <a href="mailto:rifaanjanibibah@gmail.com">📧 rifaanjanibibah@gmail.com</a>
-                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">📍 Indrapuri, Aceh Besar</p>
+                <p style="font-size: 0.85rem; margin-top: 15px; color: #E2E8F0;">📍 Indrapuri, Aceh Besar</p>
             </div>
         </section>
     </div>
 
     <footer>
-        &copy; 2026 Habibah Rifa Anjani &bull; IT Student
+        &copy; 2026 Habibah Rifa Anjani &bull; IT Student @ UIN Ar-Raniry
     </footer>
 </div>
 
