@@ -27,65 +27,81 @@
             background-color: var(--baby-blue-light);
             min-height: 100vh;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        /* Header dengan Warna Denim + Pola Garis */
-        header {
-            background-color: var(--denim);
-            /* Ini adalah kodingan untuk pola garis-garis putih tipis agar tidak polos */
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
-            background-size: 20px 20px;
-            padding: 50px 20px 40px;
-            text-align: center;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            position: relative;
             overflow: hidden;
         }
 
-        /* Hiasan garis melengkung di pojok header */
-        header::before {
+        /* Header Denim dengan aksen garis */
+        header {
+            background-color: var(--denim);
+            padding: 50px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Efek Garis Gelombang di bawah Header */
+        header::after {
             content: "";
             position: absolute;
-            top: -50px;
-            right: -50px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: var(--baby-blue-light);
+            /* Membuat lengkungan cantik */
+            clip-path: ellipse(70% 100% at 50% 100%);
+        }
+
+        /* Dekorasi Garis Melintang di background header */
+        .line-decor {
+            position: absolute;
+            top: 20px;
+            left: -20px;
             width: 150px;
-            height: 150px;
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(-45deg);
+        }
+
+        .line-decor-2 {
+            position: absolute;
+            bottom: 40px;
+            right: -20px;
+            width: 200px;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(-45deg);
         }
 
         .profile-img {
             width: 155px;
             height: 155px;
             border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.3);
+            border: 6px solid var(--white);
             object-fit: cover;
             position: relative;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         h1 {
-            margin: 10px 0 0;
+            margin: 15px 0 0;
             font-size: 1.25rem;
             color: white;
             font-weight: bold;
             position: relative;
-            z-index: 2;
+            z-index: 5;
         }
 
         .tagline {
             font-size: 0.8rem;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             margin-top: 5px;
             position: relative;
-            z-index: 2;
+            z-index: 5;
         }
 
         .content {
-            padding: 25px 20px;
+            padding: 10px 20px 30px;
         }
 
         h2 {
@@ -93,27 +109,25 @@
             color: var(--denim);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin: 25px 0 12px;
             font-weight: bold;
             display: flex;
             align-items: center;
         }
 
-        h2::after {
+        h2::before {
             content: "";
-            flex: 1;
-            height: 1px;
-            background: rgba(93, 123, 147, 0.2);
-            margin-left: 10px;
+            width: 20px;
+            height: 2px;
+            background: var(--denim);
+            margin-right: 10px;
         }
 
         .card {
             background: var(--white);
             padding: 18px;
             border-radius: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border-left: 4px solid var(--denim);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         p {
@@ -130,6 +144,8 @@
 
         .edu-item {
             margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
         }
 
         .skill-tag {
@@ -143,23 +159,22 @@
             font-weight: 500;
         }
 
-        .contact-btn {
-            display: block;
+        .contact-link {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            color: white;
-            background: var(--denim);
-            font-size: 0.85rem;
+            color: var(--text);
+            background: var(--white);
             margin-bottom: 10px;
             padding: 12px;
             border-radius: 15px;
-            text-align: center;
-            font-weight: 500;
-            box-shadow: 0 4px 10px rgba(93, 123, 147, 0.3);
+            font-size: 0.85rem;
+            border: 1px solid #E2E8F0;
         }
 
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 20px;
             font-size: 0.75rem;
             color: var(--denim);
             opacity: 0.6;
@@ -170,9 +185,12 @@
 
 <div class="mobile-view">
     <header>
+        <div class="line-decor"></div>
+        <div class="line-decor-2"></div>
+        
         <img src="foto.jpeg" alt="Habibah" class="profile-img">
         <h1>Habibah Rifa Anjani</h1>
-        <div class="tagline">Teknologi Informasi | Web Designer</div>
+        <div class="tagline">Teknologi Informasi | Web Enthusiast</div>
     </header>
 
     <div class="content">
@@ -180,7 +198,7 @@
             <h2>Tentang Saya</h2>
             <div class="card">
                 <p>
-                    Halo! Saya Habibah, mahasiswi <strong>Teknologi Informasi</strong> UIN Ar-Raniry angkatan 2023. Saya memiliki passion di bidang <strong>Web Design</strong> dan lebih senang bekerja secara fokus mandiri untuk hasil maksimal.
+                    Halo! Saya mahasiswi <strong>Teknologi Informasi</strong> angkatan 2023. Saya sangat menyukai dunia <strong>Web Design</strong> dan lebih suka bekerja secara mandiri agar bisa memberikan hasil yang maksimal dan detail.
                 </p>
             </div>
         </section>
@@ -190,9 +208,9 @@
             <div class="card">
                 <div class="edu-item">
                     <strong style="color: var(--denim);">2023 - Sekarang</strong>
-                    <p>UIN Ar-Raniry Banda Aceh<br>Prodi Teknologi Informasi</p>
+                    <p>UIN Ar-Raniry Banda Aceh<br>Teknologi Informasi</p>
                 </div>
-                <div class="edu-item" style="margin-bottom: 0;">
+                <div class="edu-item" style="border:none; margin:0; padding:0;">
                     <strong style="color: var(--denim);">2020 - 2023</strong>
                     <p>SMAN 1 Indrapuri<br>Jurusan MIPA</p>
                 </div>
@@ -201,7 +219,7 @@
 
         <section>
             <h2>Keahlian Web</h2>
-            <div style="margin-bottom: 20px;">
+            <div>
                 <span class="skill-tag">Web Design</span>
                 <span class="skill-tag">UI/UX Layout</span>
                 <span class="skill-tag">HTML & CSS</span>
@@ -209,14 +227,14 @@
         </section>
 
         <section>
-            <h2>Hubungi Saya</h2>
-            <a href="https://wa.me/6283153582243" class="contact-btn">📱 WhatsApp: 083153582243</a>
-            <a href="mailto:rifaanjanibibah@gmail.com" class="contact-btn">📧 Email: rifaanjanibibah</a>
+            <h2>Kontak</h2>
+            <a href="https://wa.me/6283153582243" class="contact-link">📱 083153582243</a>
+            <a href="mailto:rifaanjanibibah@gmail.com" class="contact-link">📧 rifaanjanibibah@gmail.com</a>
         </section>
     </div>
 
     <footer>
-        &copy; 2026 Habibah Rifa Anjani • IT Student
+        &copy; 2026 Habibah Rifa Anjani
     </footer>
 </div>
 
