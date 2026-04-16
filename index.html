@@ -9,12 +9,13 @@
             --denim: #5D7B93;
             --baby-blue-light: #EAF4FF;
             --white: #FFFFFF;
-            --text: #4A5568;
+            --text-dark: #2D3748;
+            --text-grey: #4A5568;
         }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #D1D5DB;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #D1D5DB; /* Latar luar layar */
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,152 +25,173 @@
         .mobile-view {
             width: 100%;
             max-width: 400px;
-            background-color: var(--baby-blue-light);
+            background-color: var(--baby-blue-light); /* BC Full Baby Blue Muda */
             min-height: 100vh;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            overflow: hidden;
+            position: relative;
+            overflow: hidden; /* Penting biar gelombang gak keluar kotak */
         }
 
-        /* Header Denim dengan aksen garis */
+        /* Header Denim dengan Efek Gelombang */
         header {
             background-color: var(--denim);
-            padding: 50px 20px 60px;
+            padding: 60px 20px 70px; /* Padding bawah diperluas buat ruang wave */
             text-align: center;
             position: relative;
         }
 
-        /* Efek Garis Gelombang di bawah Header */
+        /* INI DEKORASI GARIS GELOMBANG NYA (CANTIK DARI CSS) */
         header::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 50px;
-            background-color: var(--baby-blue-light);
-            /* Membuat lengkungan cantik */
+            height: 50px; /* Tinggi gelombang */
+            background-color: var(--baby-blue-light); /* Samain bc body */
+            /* Ini magic untuk bikin lengkungan */
             clip-path: ellipse(70% 100% at 50% 100%);
-        }
-
-        /* Dekorasi Garis Melintang di background header */
-        .line-decor {
-            position: absolute;
-            top: 20px;
-            left: -20px;
-            width: 150px;
-            height: 2px;
-            background: rgba(255,255,255,0.2);
-            transform: rotate(-45deg);
-        }
-
-        .line-decor-2 {
-            position: absolute;
-            bottom: 40px;
-            right: -20px;
-            width: 200px;
-            height: 2px;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(-45deg);
         }
 
         .profile-img {
             width: 155px;
             height: 155px;
             border-radius: 50%;
-            border: 6px solid var(--white);
+            border: 5px solid rgba(255, 255, 255, 0.4);
             object-fit: cover;
             position: relative;
-            z-index: 5;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 2; /* Biar di atas gelombang */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         h1 {
             margin: 15px 0 0;
-            font-size: 1.25rem;
+            font-size: 1.25rem; /* Teks nama kecil pas */
             color: white;
             font-weight: bold;
             position: relative;
-            z-index: 5;
+            z-index: 2;
         }
 
         .tagline {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.9);
+            font-size: 0.8rem; /* Teks kecil */
+            color: rgba(255, 255, 255, 0.8);
             margin-top: 5px;
             position: relative;
-            z-index: 5;
+            z-index: 2;
         }
 
         .content {
-            padding: 10px 20px 30px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         h2 {
-            font-size: 0.9rem;
+            font-size: 0.9rem; /* Judul seksi kecil */
             color: var(--denim);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 25px 0 12px;
-            font-weight: bold;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
+            font-weight: bold;
         }
 
         h2::before {
             content: "";
-            width: 20px;
-            height: 2px;
+            width: 8px;
+            height: 18px;
             background: var(--denim);
             margin-right: 10px;
+            border-radius: 4px;
         }
 
         .card {
             background: var(--white);
             padding: 18px;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         p {
-            font-size: 0.85rem;
+            font-size: 0.85rem; /* Teks isi kecil pas */
             line-height: 1.6;
-            color: var(--text);
+            color: var(--text-grey);
             margin: 0;
         }
 
         strong {
-            color: #2D3748;
+            color: var(--text-dark);
             font-weight: bold;
+        }
+
+        .edu-timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .edu-timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: #E2E8F0;
         }
 
         .edu-item {
             margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #edf2f7;
+            position: relative;
+        }
+
+        .edu-item::before {
+            content: "";
+            position: absolute;
+            left: -26px; /* Di garis timeline */
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border-radius: 50%;
+            border: 2px solid var(--denim);
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .skill-tag {
-            display: inline-block;
             background: var(--denim);
             color: white;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 12px;
-            font-size: 0.75rem;
-            margin: 4px 2px;
+            font-size: 0.8rem; /* Teks kecil */
             font-weight: 500;
         }
 
-        .contact-link {
-            display: flex;
-            align-items: center;
+        .contact-box {
+            background: var(--denim);
+            color: white;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-box a {
+            color: white;
             text-decoration: none;
-            color: var(--text);
-            background: var(--white);
-            margin-bottom: 10px;
-            padding: 12px;
-            border-radius: 15px;
+            display: block;
+            margin: 10px 0;
             font-size: 0.85rem;
-            border: 1px solid #E2E8F0;
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 12px;
         }
 
         footer {
@@ -177,7 +199,9 @@
             padding: 20px;
             font-size: 0.75rem;
             color: var(--denim);
-            opacity: 0.6;
+            opacity: 0.7;
+            background-color: var(--white);
+            border-top: 1px solid #E2E8F0;
         }
     </style>
 </head>
@@ -185,12 +209,9 @@
 
 <div class="mobile-view">
     <header>
-        <div class="line-decor"></div>
-        <div class="line-decor-2"></div>
-        
         <img src="foto.jpeg" alt="Habibah" class="profile-img">
         <h1>Habibah Rifa Anjani</h1>
-        <div class="tagline">Teknologi Informasi | Web Enthusiast</div>
+        <div class="tagline">Teknologi Informasi | Web Design Enthusiast</div>
     </header>
 
     <div class="content">
@@ -198,7 +219,7 @@
             <h2>Tentang Saya</h2>
             <div class="card">
                 <p>
-                    Halo! Saya mahasiswi <strong>Teknologi Informasi</strong> angkatan 2023. Saya sangat menyukai dunia <strong>Web Design</strong> dan lebih suka bekerja secara mandiri agar bisa memberikan hasil yang maksimal dan detail.
+                    Halo! Saya mahasiswi <strong>Teknologi Informasi</strong> UIN Ar-Raniry angkatan 2023. Saya memiliki ketertarikan mendalam di dunia <strong>Web Design</strong> dan lebih senang bekerja secara fokus dan mandiri.
                 </p>
             </div>
         </section>
@@ -206,20 +227,24 @@
         <section>
             <h2>Pendidikan</h2>
             <div class="card">
-                <div class="edu-item">
-                    <strong style="color: var(--denim);">2023 - Sekarang</strong>
-                    <p>UIN Ar-Raniry Banda Aceh<br>Teknologi Informasi</p>
-                </div>
-                <div class="edu-item" style="border:none; margin:0; padding:0;">
-                    <strong style="color: var(--denim);">2020 - 2023</strong>
-                    <p>SMAN 1 Indrapuri<br>Jurusan MIPA</p>
+                <div class="edu-timeline">
+                    <div class="edu-item">
+                        <strong style="font-size: 0.75rem; color: var(--denim);">2023 - Sekarang</strong><br>
+                        <strong>UIN Ar-Raniry Banda Aceh</strong>
+                        <p>Teknologi Informasi</p>
+                    </div>
+                    <div class="edu-item" style="margin-bottom: 0;">
+                        <strong style="font-size: 0.75rem; color: var(--denim);">2020 - 2023</strong><br>
+                        <strong>SMAN 1 Indrapuri</strong>
+                        <p>Jurusan MIPA</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>Keahlian Web</h2>
-            <div>
+            <div class="skill-container">
                 <span class="skill-tag">Web Design</span>
                 <span class="skill-tag">UI/UX Layout</span>
                 <span class="skill-tag">HTML & CSS</span>
@@ -227,14 +252,17 @@
         </section>
 
         <section>
-            <h2>Kontak</h2>
-            <a href="https://wa.me/6283153582243" class="contact-link">📱 083153582243</a>
-            <a href="mailto:rifaanjanibibah@gmail.com" class="contact-link">📧 rifaanjanibibah@gmail.com</a>
+            <div class="contact-box">
+                <h3 style="margin-top:0; color: white;">Hubungi Saya</h3>
+                <a href="https://wa.me/6283153582243">📱 +62 831 5358 2243</a>
+                <a href="mailto:rifaanjanibibah@gmail.com">📧 rifaanjanibibah@gmail.com</a>
+                <p style="font-size: 0.8rem; margin-top: 15px; color: #E2E8F0;">📍 Indrapuri, Aceh Besar</p>
+            </div>
         </section>
     </div>
 
     <footer>
-        &copy; 2026 Habibah Rifa Anjani
+        &copy; 2026 Habibah Rifa Anjani &bull; IT Student
     </footer>
 </div>
 
