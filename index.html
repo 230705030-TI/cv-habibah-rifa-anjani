@@ -7,14 +7,14 @@
     <style>
         :root {
             --denim: #5D7B93;
-            --baby-blue: #E3F2FD;
+            --baby-blue-light: #EAF4FF;
             --white: #FFFFFF;
-            --text-dark: #2D3748;
+            --text: #4A5568;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: #CBD5E1;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #D1D5DB;
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,67 +24,57 @@
         .mobile-view {
             width: 100%;
             max-width: 400px;
-            background-color: var(--baby-blue); /* Background Baby Blue */
+            background-color: var(--baby-blue-light);
             min-height: 100vh;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         header {
-            background-color: var(--denim); /* Header Denim */
-            padding: 50px 20px;
+            background-color: var(--denim);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+            padding: 50px 20px 40px;
             text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
             position: relative;
-            overflow: hidden;
-            /* Tanpa border-radius melengkung bawah, dibuat lurus */
         }
 
-        /* Dekorasi Garis Melintang (Bukan Titik-titik) */
-        .line-decor {
+        /* Hiasan garis lingkaran di pojok header */
+        header::before {
+            content: "";
             position: absolute;
-            width: 150%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-            top: 20%;
-            left: -25%;
-            transform: rotate(-15deg);
-        }
-
-        .line-decor-2 {
-            position: absolute;
-            width: 150%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            top: 30%;
-            left: -25%;
-            transform: rotate(-15deg);
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
         }
 
         .profile-img {
-            width: 160px; /* Foto diperbesar sedikit */
-            height: 160px;
+            width: 155px;
+            height: 155px;
             border-radius: 50%;
-            border: 5px solid var(--white);
+            border: 5px solid rgba(255,255,255,0.3);
             object-fit: cover;
             position: relative;
             z-index: 2;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         h1 {
             margin: 15px 0 0;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: white;
             font-weight: bold;
-            position: relative;
-            z-index: 2;
         }
 
         .tagline {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: rgba(255,255,255,0.8);
             margin-top: 5px;
-            position: relative;
-            z-index: 2;
         }
 
         .content {
@@ -92,33 +82,47 @@
         }
 
         h2 {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--denim);
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
             font-weight: bold;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--denim);
-            display: inline-block;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(93, 123, 147, 0.2);
+            margin-left: 10px;
         }
 
         .card {
             background: var(--white);
             padding: 18px;
-            border-radius: 15px;
+            border-radius: 20px;
             margin-bottom: 25px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid rgba(93, 123, 147, 0.1);
         }
 
         p {
-            font-size: 0.85rem; /* Ukuran teks kecil sesuai permintaan */
+            font-size: 0.85rem;
             line-height: 1.6;
-            color: #4A5568;
+            color: var(--text);
             margin: 0;
         }
 
         strong {
+            color: #2D3748;
             font-weight: bold;
-            color: var(--denim);
+        }
+
+        .edu-item {
+            margin-bottom: 15px;
         }
 
         .skill-tag {
@@ -126,29 +130,25 @@
             background: var(--denim);
             color: white;
             padding: 6px 14px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 0.75rem;
             margin: 4px 2px;
-            font-weight: bold;
+            font-weight: 500;
         }
 
-        .contact-box {
-            background: var(--denim);
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .contact-box a {
-            color: white;
+        .btn-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
-            display: block;
-            margin: 10px 0;
+            color: white;
+            background: var(--denim);
             font-size: 0.85rem;
-            font-weight: bold;
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 10px;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 15px;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(93, 123, 147, 0.3);
         }
 
         footer {
@@ -164,12 +164,9 @@
 
 <div class="mobile-view">
     <header>
-        <div class="line-decor"></div>
-        <div class="line-decor-2"></div>
-        
         <img src="foto.jpeg" alt="Habibah" class="profile-img">
         <h1>Habibah Rifa Anjani</h1>
-        <div class="tagline">Teknologi Informasi | Web Enthusiast</div>
+        <div class="tagline">Teknologi Informasi | Web Designer</div>
     </header>
 
     <div class="content">
@@ -177,7 +174,7 @@
             <h2>Tentang Saya</h2>
             <div class="card">
                 <p>
-                    Halo! Saya mahasiswi <strong>Teknologi Informasi</strong> UIN Ar-Raniry angkatan 2023. Saya sangat menyukai dunia <strong>Web Design</strong> dan lebih senang bekerja secara mandiri agar bisa fokus memberikan hasil yang maksimal.
+                    Halo! Saya Habibah, mahasiswi <strong>Teknologi Informasi</strong> UIN Ar-Raniry angkatan 2023. Saya memiliki passion di bidang <strong>Web Design</strong> dan lebih senang bekerja secara fokus mandiri untuk hasil maksimal.
                 </p>
             </div>
         </section>
@@ -185,15 +182,20 @@
         <section>
             <h2>Pendidikan</h2>
             <div class="card">
-                <p><strong>2023 - Sekarang</strong><br>UIN Ar-Raniry Banda Aceh<br>Teknologi Informasi</p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
-                <p><strong>2020 - 2023</strong><br>SMAN 1 Indrapuri<br>Jurusan MIPA</p>
+                <div class="edu-item">
+                    <strong style="color: var(--denim); font-size: 0.9rem;">2023 - Sekarang</strong>
+                    <p>UIN Ar-Raniry Banda Aceh<br>Prodi Teknologi Informasi</p>
+                </div>
+                <div class="edu-item" style="margin-bottom: 0;">
+                    <strong style="color: var(--denim); font-size: 0.9rem;">2020 - 2023</strong>
+                    <p>SMAN 1 Indrapuri<br>Jurusan MIPA</p>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>Keahlian</h2>
-            <div style="margin-bottom: 20px;">
+            <h2>Keahlian Web</h2>
+            <div style="margin-bottom: 25px;">
                 <span class="skill-tag">Web Design</span>
                 <span class="skill-tag">UI/UX Layout</span>
                 <span class="skill-tag">HTML & CSS</span>
@@ -201,10 +203,9 @@
         </section>
 
         <section>
-            <div class="contact-box">
-                <a href="https://wa.me/6283153582243">📱 WhatsApp: 083153582243</a>
-                <a href="mailto:rifaanjanibibah@gmail.com">📧 Email: rifaanjanibibah@gmail.com</a>
-            </div>
+            <h2>Hubungi Saya</h2>
+            <a href="https://wa.me/6283153582243" class="btn-link">📱 WhatsApp: 083153582243</a>
+            <a href="mailto:rifaanjanibibah@gmail.com" class="btn-link">📧 Email: rifaanjanibibah@gmail.com</a>
         </section>
     </div>
 
